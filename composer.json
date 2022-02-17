@@ -1,0 +1,13 @@
+{
+    "name": "mjbernha/mitlib-cube",
+    "description": "A child theme for the Pentagram-designed branding of the MIT Libraries",
+    "type": "wordpress-theme",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Matt Bernhardt",
+            "email": "mjbernha@mit.edu"
+        }
+    ],
+    "require": {}
+}
