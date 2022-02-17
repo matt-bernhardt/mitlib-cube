@@ -38,21 +38,6 @@ jobs:
     #   run: composer run-script test
     # This approach could also be used if we adopt Robo for our build, rather than Grunt
 
-    - name: Compile global                      # 2a. The actual build - the next three steps are Sass compiling...
-      uses: gha-utilities/sass-build@v0.2.2
-      with:
-        source: css/global.scss
-        destination: css/build/global.css
-    - name: Compile forms
-      uses: gha-utilities/sass-build@v0.2.2
-      with:
-        source: css/forms.scss
-        destination: css/build/forms.css
-    - name: Compile hours
-      uses: gha-utilities/sass-build@v0.2.2
-      with:
-        source: css/hours.scss
-        destination: css/build/hours.css
     - name: Run Grunt steps                     # 2b. The rest of the build after Sass happens through Grunt (see
                                                 #     Gruntfile.js)
       run: grunt default
@@ -65,10 +50,6 @@ jobs:
       run: git status
     - name: DEBUG confirm git branch/commit in stylesheet
       run: head style.css
-    - name: DEBUG confirm CSS build output
-      run: ls -lR ./css/build/
-    - name: DEBUG confirm JS build output
-      run: ls -lR ./js/build/
 
     - name: Store build result as an artifact   # At the end of the build process, we store those files needed for
                                                 # use (templates, stylesheets, scripts, images, etc) as an artifact.
@@ -79,15 +60,12 @@ jobs:
         name: build-artifact
         path: |
           css
-          !css/**/*.scss
           fonts
           images
           inc
           js
-          languages
-          lib
-          libs
           composer.json
+          license.txt
           *.css
           *.php
           *.png
@@ -114,11 +92,6 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add .
-          git status
-      - name: Force-add built content (stylesheets and javascript) - necessary because of .gitignore
-        run: |
-          git add -f css/build/*
-          git add -f js/build/*
       - name: DEBUG Confirm scope of changes to dev-release
         run: git status
       - name: Commit changes                      # TODO - could we get a better commit message?
