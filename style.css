@@ -1,12 +1,12 @@
 /*
-Theme Name: MIT Libraries Child NEW
-Author: Lightning Trumpet & MIT Libraries
-Author URI: http://wordpress.org/
-Version: 2.2.4-@@branch-@@commit
+Theme Name: MIT Libraries Cube
+Author: Lightning Trumpet, Pentagram, and Matt Bernhardt
+Author URI: https://github.com/matt-bernhardt
+Version: 3.0.0-@@branch-@@commit
 
-Template: libraries
+Template: mitlib-tesseract
 
-MIT Libraries theme built for the MIT Libraries child websites.
+A child theme for the Pentagram-designed branding of the MIT Libraries
 
 PLEASE NOTE: This file is intentionally left empty. The Grunt build
 process will populate it based on the contents of css/style.css. 
